@@ -4,9 +4,10 @@
 {% block title %} Lunch List {% endblock %}
 
 {% block content %}
-  <h1 class="display-1">Lunches Today</h1>
+  <h1 class="display-3">Lunches Today</h1>
   <h4 class="display-6">{% now "l jS F" %}</h4>
     
+    <div class="table-responsive-sm">
     <table class="table table-bordered table-striped ">
         <thead class="thead-dark">
             <tr>
@@ -23,10 +24,11 @@
                 <td>{{ lunch.other_option }} </td>
                 <td> 
                     <a href="{% url 'lunch_update' lunch.lunch_item_id %}" class="btn btn-warning" >Update</a>
-                    <a href="{% url 'lunch_delete' lunch.lunch_item_id %}" class="btn btn-danger" >Delete</a>
+                    <!-- <a href="{% url 'lunch_delete' lunch.lunch_item_id %}" class="btn btn-danger" >Delete</a> -->
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    </div>
 {% endblock %}

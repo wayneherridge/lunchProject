@@ -4,12 +4,13 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-  <div class="jumbotron text-center">
-    <h1 class="display-4">Welcome to Swanwick School's Lunch System</h1>
-    <hr class="my-4">
-    <p>
-        Use the navigation bar to add, view, update or delete lunches.
-    </p>
-    <a href="{% url 'lunch_list' %}" class="btn btn-primary btn-lg" role="button">View Lunches</a>
-  </div>
+<div class="container">
+        <h2>Home</h2>
+        <p>Welcome, {{request.user.username}}!</p>
+        <a href="{% url 'protected' %}">Go To Your Protected Page!</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
 {% endblock %}
