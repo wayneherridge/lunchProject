@@ -1,0 +1,15 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "lunch/layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Swanwick School's Lunch System</h1>
+    <hr class="my-4">
+    <p>
+        Use the navigation bar to add, view, update or delete lunches.
+    </p>
+    <a href="{% url 'lunch_list' %}" class="btn btn-primary btn-lg" role="button">View Lunches</a>
+  </div>
+{% endblock %}

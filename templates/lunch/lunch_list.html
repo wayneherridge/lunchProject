@@ -1,0 +1,32 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "lunch/layout.html" %}
+
+{% block title %} Lunch List {% endblock %}
+
+{% block content %}
+  <h1 class="display-1">Lunches Today</h1>
+  <h4 class="display-6">{% now "l jS F" %}</h4>
+    
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+            <tr>
+                <th>Student Name</th>
+                <th>Lunch Option</th>
+                <th>Other</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lunch in lunches %}
+            <tr>
+                <td>{{ lunch.student_name }}</td>
+                <td>{{ lunch.lunch_option }} </td>
+                <td>{{ lunch.other_option }} </td>
+                <td> 
+                    <a href="{% url 'lunch_update' lunch.lunch_item_id %}" class="btn btn-warning" >Update</a>
+                    <a href="{% url 'lunch_delete' lunch.lunch_item_id %}" class="btn btn-danger" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
